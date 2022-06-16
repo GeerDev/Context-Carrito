@@ -1,32 +1,34 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "antd/dist/antd.css";
-import Login from './components/Login/Login';
-import Profile from './components/Profile/Profile';
-import Products from './components/Products/Products';
-import Header from './components/Header/Header';
-import { UserProvider } from './context/UserContext/UserState';
-import { ProductsProvider } from './context/ProductsContext/ProductsState';
-import Cart from './components/Cart/Cart';
+import Login from "./components/Login/Login";
+import Profile from "./components/Profile/Profile";
+import Products from "./components/Products/Products";
+import Header from "./components/Header/Header";
+import { UserProvider } from "./context/UserContext/UserState";
+import { ProductsProvider } from "./context/ProductsContext/ProductsState";
+import Cart from "./components/Cart/Cart";
+import { OrdersProvider } from "./context/OrdersContext/OrdersState";
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
         <ProductsProvider>
-        <BrowserRouter>
-        <Header />
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/cart" element={<Cart />} />
-            </Routes>
-          </BrowserRouter>
+          <OrdersProvider>
+            <BrowserRouter>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/cart" element={<Cart />} />
+              </Routes>
+            </BrowserRouter>
+          </OrdersProvider>
         </ProductsProvider>
       </UserProvider>
     </div>
-
   );
 }
 
