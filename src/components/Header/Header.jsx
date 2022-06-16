@@ -17,7 +17,7 @@ function Header() {
     <span>Header</span>
     <div>
         {
-            token ?     <>
+            token !== null ?     <>
                         <span onClick={outPerson}><Link to="/">Logout</Link></span>
                         <span><Link to="/profile">Profile</Link></span>
                         </>  :  
