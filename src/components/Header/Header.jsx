@@ -9,14 +9,18 @@ function Header() {
     <nav className="header">
     <span>Header</span>
     <div>
-        <span>
+        {
+            token ?     <>
+                        <span><Link to="/">Logout</Link></span>
+                        <span><Link to="/profile">Profile</Link></span>
+                        </>  :  
+            <span>
             <Link to="/">Login</Link>
-        </span>
+            </span>
+        }
+
         <span>
             <Link to="/products">Products</Link>
-        </span>
-        <span>
-            <Link to="/profile">Profile</Link>
         </span>
     </div>
   </nav>
