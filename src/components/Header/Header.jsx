@@ -7,31 +7,36 @@ function Header() {
   const { token, logout } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const outPerson = () => {
-    logout()
-    navigate("/")
-  }
+  const logoutUser = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <nav className="header">
-    <span>Header</span>
-    <div>
-        {
-            token !== null ?     <>
-                        <span onClick={outPerson}><Link to="/">Logout</Link></span>
-                        <span><Link to="/profile">Profile</Link></span>
-                        </>  :  
-            <span>
-            <Link to="/">Login</Link>
+      <span>Header</span>
+      <div>
+        {token ? (
+          <>
+            <span onClick={logoutUser}>
+              <Link to="/">Logout</Link>
             </span>
-        }
+            <span>
+              <Link to="/profile">Profile</Link>
+            </span>
+          </>
+        ) : (
+          <span>
+            <Link to="/">Login</Link>
+          </span>
+        )}
 
         <span>
-            <Link to="/products">Products</Link>
+          <Link to="/products">Products</Link>
         </span>
-    </div>
-  </nav>
-  )
+      </div>
+    </nav>
+  );
 }
 
-export default Header
+export default Header;
