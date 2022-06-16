@@ -13,11 +13,10 @@ const Profile = () => {
   }
   const order = user.orderIds.map(order=> {
    return(
-    <>
+    <div key={order._id}>
     <p>{order.status}</p>
-    <p>{order.productIds.map(product => product.name)}</p>
-    </>
-
+    <p>{order.productIds.map(product => <span key={product._id}>{product.name}</span> )}</p>
+    </div>
    ) 
   }
     )
