@@ -1,14 +1,18 @@
-// import { Button, Checkbox, Form, Input } from "antd";
 import "./Login.css";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
 import { Form, Input, Button } from 'antd';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const onFinish = (values) => {
     login(values)
+    setTimeout(() => {
+      navigate("/profile")
+    },1000)
   };
 
   const onFinishFailed = (errorInfo) => {

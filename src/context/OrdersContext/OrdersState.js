@@ -1,17 +1,13 @@
 import { createContext, useReducer } from "react";
 import axios from "axios";
 
-const token = JSON.parse(localStorage.getItem("token"));
-
-const initialState = {
-  token: token ? token : null,
-};
-
 const API_URL = "http://localhost:8000";
-export const OrdersContext = createContext(initialState);
+
+export const OrdersContext = createContext();
 
 export const OrdersProvider = ({ children }) => {
   const createOrder = async (order) => {
+    const token = JSON.parse(localStorage.getItem("token"));
     try {
       await axios.post(API_URL + "/orders", {productIds:order},
       {

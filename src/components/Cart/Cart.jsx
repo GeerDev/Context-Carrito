@@ -8,9 +8,11 @@ const Cart = () => {
   if (!cart) {
     return <span>No tienes ningún producto añadido</span>;
   }
-
+const createNewOrder = () =>{
+    createOrder(cart)
+    clearCart()
+}
   const cartItem = cart.map((cartItem, i) => {
-    console.log(cartItem);
     return (
       <div className="cart" key={i}>
         <span>{cartItem.name}</span>
@@ -22,7 +24,7 @@ const Cart = () => {
     <div>
       {cartItem}
       <button onClick={() => clearCart()}>Clear cart</button>
-      <button onClick={() => createOrder(cart)}>Create Order</button>
+      <button onClick={() => createNewOrder(cart)}>Create Order</button>
     </div>
   );
 };
