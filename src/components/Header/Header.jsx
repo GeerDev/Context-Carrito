@@ -2,6 +2,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
+import { ShoppingCartOutlined,Badge } from '@ant-design/icons';
 
 function Header() {
     const { token } = useContext(UserContext);
@@ -13,6 +14,7 @@ function Header() {
             token ?     <>
                         <span><Link to="/">Logout</Link></span>
                         <span><Link to="/profile">Profile</Link></span>
+                        <span><Link to="/cart"><ShoppingCartOutlined /></Link></span>
                         </>  :  
             <span>
             <Link to="/">Login</Link>

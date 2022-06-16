@@ -7,7 +7,7 @@ import Products from './components/Products/Products';
 import Header from './components/Header/Header';
 import { UserProvider } from './context/UserContext/UserState';
 import { ProductsProvider } from './context/ProductsContext/ProductsState';
-
+import Cart from './components/Cart/Cart';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
               <Route path="/" element={<Login />} />
               <Route path="/products" element={<Products />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
           </BrowserRouter>
         </ProductsProvider>
